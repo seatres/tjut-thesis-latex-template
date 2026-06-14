@@ -9,7 +9,7 @@
 %% 不含封皮、首页、原创性声明、选题审批表、任务书、开题报告、底图
 %% （以上均使用教务处统一模板，单独制作后合并装订）。
 %%
-%% Copyright (c) 2026 Xu Zhe <seatre@qq.com>
+%% Copyright (c) 2026 seatres (https://github.com/seatres)
 %%
 %% This work may be distributed and/or modified under the conditions of
 %% the LaTeX Project Public License, either version 1.3c of this license
@@ -18,15 +18,16 @@
 %% or later is part of all distributions of LaTeX version 2008 or later.
 %%
 %% This work has the LPPL maintenance status `maintained'.
-%% The Current Maintainer of this work is Xu Zhe <seatre@qq.com>.
-%% This work consists of the files tjutthesis.cls and main.tex
-%% (and the documentation README.md, fonts/README.md). 许可全文见 LICENSE。
+%% The Current Maintainer of this work is seatres (https://github.com/seatres).
+%% This work consists of tjutthesis.cls, main.tex, the files under
+%% chapters/, and the documentation (README.md, fonts/README.md).
+%% 许可全文见 LICENSE。
 %%
 %% 注意：本许可不含、也不授权任何第三方字体（中易 宋/黑/楷/仿宋、Times
 %%       New Roman 等）；字体版权归各自所有者，获取方式见 fonts/README.md。
 %% ============================================================
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{tjutthesis}[2026/06/10 v1.0 TJUT undergraduate thesis template. Copyright (c) 2026 Xu Zhe <seatre@qq.com>]
+\ProvidesClass{tjutthesis}[2026/06/10 v1.0 TJUT undergraduate thesis template. Copyright (c) 2026 seatres]
 
 %% 必须使用 XeLaTeX 编译；用 pdfLaTeX 编译时立即给出明确报错，
 %% 避免在 Overleaf 上无声地慢跑直至超时

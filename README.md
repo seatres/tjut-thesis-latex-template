@@ -10,12 +10,29 @@
 
 ## 文件结构
 
-| 文件 | 作用 |
-|---|---|
-| `tjutthesis.cls` | 文档类，封装全部格式要求（一般不需改动） |
-| `main.tex` | 示例主文件，照着替换成自己的内容（含详细用法注释） |
-| `fonts/` | **字体须自行放入**，见 [`fonts/README.md`](fonts/README.md)（版权字体未随仓库分发） |
-| `LICENSE` | MIT 许可（仅覆盖模版源文件，不含字体） |
+内容按部分拆分到 `chapters/` 下，`main.tex` 只做装配（仿 TongjiThesis 形式）：
+
+```
+main.tex                      薄主文件，只负责 \input 装配各部分
+tjutthesis.cls                文档类，封装全部格式要求（一般不需改动）
+chapters/
+  metadata.tex                届别等元数据（\gradyear）
+  00_abstract.tex             中英文标题、摘要、关键词
+  01_introduction.tex         第一章 绪论
+  02_experiment.tex           第二章（图/表/公式示例）
+  03_conclusion.tex           第三章 结论
+  references.tex              参考文献（thebibliography 手工著录）
+  appendix.tex                附录
+  acknowledgement.tex         致谢
+figures/                      插图目录（\includegraphics 直接写文件名）
+fonts/                        字体须自行放入，见 fonts/README.md（版权字体未随仓库分发）
+latexmkrc / Makefile          本地一键编译（已指定 XeLaTeX）
+LICENSE                       LPPL-1.3c（仅覆盖模版源文件，不含字体）
+```
+
+> 新增/调整章节：在 `chapters/` 下新建一个 `.tex`（如 `04_design.tex`），
+> 再在 `main.tex` 正文区加一行 `\input{chapters/04_design}` 即可；删除、
+> 重排章节同理——改 `main.tex` 里的 `\input` 顺序就行。
 
 ## 快速开始
 
@@ -28,7 +45,8 @@
 ### 本地编译
 需要 TeX Live / MacTeX（含 `ctex`、`xeCJK`）：
 ```bash
-xelatex main.tex        # 或：latexmk -xelatex main.tex
+latexmk main.tex        # latexmkrc 已指定 XeLaTeX；或手动：xelatex main.tex
+make                    # 等价；make cleanall 清理全部产物
 ```
 
 > ⚠️ 本模版**必须用 XeLaTeX 编译**。若误用 pdfLaTeX，会立即报错提示切换，
@@ -43,9 +61,10 @@ xelatex main.tex        # 或：latexmk -xelatex main.tex
 
 ## 使用要点
 
-- **届别**：`main.tex` 导言区 `\gradyear{2026}` 改成实际届别，自动生成页眉
-  “天津理工大学2026届本科毕业设计说明书（毕业论文）”。
-- **摘要**：`\begin{cnabstract}[副标题]{中文标题} … \end{cnabstract}`，
+- **届别**：在 `chapters/metadata.tex` 改 `\gradyear{2026}` 为实际届别，
+  自动生成页眉“天津理工大学2026届本科毕业设计说明书（毕业论文）”。
+- **摘要**：写在 `chapters/00_abstract.tex`，
+  `\begin{cnabstract}[副标题]{中文标题} … \end{cnabstract}`，
   单人课题去掉 `[副标题]`；英文摘要用 `enabstract`，二者之间**不要**
   `\clearpage`（规范要求中英文摘要不另起新页）。
 - **章节**：直接用 `\chapter{}`、`\section{}`、`\subsection{}`，编号
@@ -55,12 +74,12 @@ xelatex main.tex        # 或：latexmk -xelatex main.tex
   图题自动排在图下方（五号楷体），按章编号。
 - **表**：`\caption` 写在 `tabular` **之前**（表题在表上方）；表内字号已自动五号。
 - **公式**：用 `equation` 环境，编号 (x.x) 自动按章靠右。
-- **参考文献**：`thebibliography` 中按 GB/T 7714-2015 手工著录（`main.tex`
-  已给期刊/学位论文/图书/网页/外文五类示例），须“前引后列”——每条都在
-  正文 `\cite` 过且按引用先后排序。
-- **附录**：放入 `appendices` 环境，`\chapter{附录名}` 自动编为“附录1 附录名”；
-  无附录可整段删除。
-- **致谢**：写在 `acknowledgements` 环境内。
+- **参考文献**：在 `chapters/references.tex` 的 `thebibliography` 中按
+  GB/T 7714-2015 手工著录（已给期刊/学位论文/图书/网页/外文五类示例），
+  须“前引后列”——每条都在正文 `\cite` 过且按引用先后排序。
+- **附录**：在 `chapters/appendix.tex` 的 `appendices` 环境内，
+  `\chapter{附录名}` 自动编为“附录1 附录名”；无附录可删去 `main.tex` 中对应的 `\input` 行。
+- **致谢**：写在 `chapters/acknowledgement.tex` 的 `acknowledgements` 环境内。
 
 ## 已落实的规范要点
 
@@ -78,14 +97,14 @@ xelatex main.tex        # 或：latexmk -xelatex main.tex
 
 ## 版权与许可
 
-模版源文件 © 2026 **Xu Zhe** \<seatre@qq.com\>，依据
+模版源文件 © 2026 **seatres**（https://github.com/seatres），依据
 [**LaTeX Project Public License 1.3c**](LICENSE)（或更新版本）发布——
 LaTeX 宏包/文档类的生态标准许可：
 
 - 可自由使用、修改、再分发（**包括商业用途**）；
-- 维护状态 `maintained`，**当前维护者：Xu Zhe \<seatre@qq.com\>**；
+- 维护状态 `maintained`，**当前维护者：seatres**（https://github.com/seatres）；
 - 再分发**修改后**的版本时，须按 LPPL 要求更改文件名/作品标识、标注修改者为
-  新的“当前维护者”，并**保留原作者 Xu Zhe \<seatre@qq.com\> 的署名与许可信息**，
+  新的“当前维护者”，并**保留原作者 seatres 的署名与许可信息**，
   使原版不被冒名或混淆。
 
 > **字体不在许可范围内**：中易字体等为第三方版权字体，未随本模版分发，

@@ -1,0 +1,51 @@
+%% ============================================================
+%% 第二章 凸轮分度机构的实验研究（图 / 表 / 公式示例）
+%% ============================================================
+\chapter{凸轮分度机构的实验研究}
+
+\section{实验系统的组成}
+
+图应尽可能置于某页的开始或结尾，并且在图之前的文字段落中有
+“如图~x.x”的字样，如图~\ref{fig:demo} 所示。图中的标注一律采用中文，
+图题（五号楷体）紧接图的下一行居中打印，图号按章顺序编号。
+
+\begin{figure}[htbp]
+  \centering
+  %% 把图片放进 figures/ 目录后，直接写文件名即可（已设 \graphicspath）：
+  %%   \includegraphics[width=0.6\textwidth]{你的图.png}
+  \includegraphics[width=0.5\textwidth]{example-image}
+  \caption{实验系统组成示意图}
+  \label{fig:demo}
+\end{figure}
+
+\section{实验数据与分析}
+
+表应尽可能置于某页的开始或结尾，并且在表之前的文字段落中有
+“如表~x.x”的字样，如表~\ref{tab:demo} 所示。表标题（五号楷体）置于
+表的上方居中，表内文字为五号；表内不用“同上”“同左”等词，空白代表
+无此项内容。
+
+\begin{table}[htbp]
+  \centering
+  \caption{实验测试结果}
+  \label{tab:demo}
+  \begin{tabular}{cccc}
+    \toprule
+    序号 & 转速/(r/min) & 扭矩/(N·m) & 温升/℃ \\
+    \midrule
+    1 & 1000 & 12.5 & 8.2 \\
+    2 & 1500 & 13.1 & 10.6 \\
+    3 & 2000 & 13.8 & 13.4 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+数学、物理和化学式在正文中另起一行打印，式的序号按章顺序编排并标注在
+该行最右边，如式~(\ref{eq:demo})：
+\begin{equation}
+  m\ddot{x} + c\dot{x} + kx = F(t)
+  \label{eq:demo}
+\end{equation}
+式中：$m$ 为等效质量；$c$ 为阻尼系数；$k$ 为刚度；$F(t)$ 为激励力。
+较长的式另行居中横排；如必须转行，只能在 $+$、$-$、$\times$、$\div$、
+$<$、$>$ 处转行，上下式尽可能在等号“$=$”处对齐。

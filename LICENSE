@@ -1,5 +1,5 @@
 天津理工大学本科毕业设计说明书 LaTeX 模版
-Copyright (c) 2026 Xu Zhe <seatre@qq.com>
+Copyright (c) 2026 seatres (https://github.com/seatres)
 
 本作品依据 LaTeX Project Public License (LPPL) 1.3c 版（或更新版本）发布。
 This work may be distributed and/or modified under the conditions of the
@@ -13,18 +13,20 @@ and version 1.3c or later is part of all distributions of LaTeX version
 2008 or later.
 
 本作品的 LPPL 维护状态为 `maintained'（maintenance status: `maintained').
-当前维护者 / The Current Maintainer of this work is: Xu Zhe <seatre@qq.com>.
+当前维护者 / The Current Maintainer of this work is:
+  seatres (https://github.com/seatres).
 
 本作品由以下文件构成 / This work consists of the files:
-  tjutthesis.cls, main.tex
+  tjutthesis.cls, main.tex, latexmkrc, Makefile,
+  chapters/ 下的各 .tex 文件 / the .tex files under chapters/,
 及文档 / and the documentation:
   README.md, fonts/README.md
 
 要点（以下方法律文本为准）/ Key points (the legal text below governs):
   - 可自由使用、修改、再分发，包括商业用途。
   - 再分发**修改后**的版本时，须按 LPPL 要求更改文件名/作品标识，并清楚
-    标注修改者为新的“当前维护者”，同时**保留原作者 Xu Zhe <seatre@qq.com>
-    的署名与本许可信息**，使原版信息不被冒名或混淆。
+    标注修改者为新的“当前维护者”，同时**保留原作者 seatres
+    (https://github.com/seatres) 的署名与本许可信息**，使原版信息不被冒名或混淆。
 
 ----------------------------------------------------------------------
 字体说明 / NOTE ON FONTS
