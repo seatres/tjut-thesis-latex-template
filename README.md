@@ -10,7 +10,7 @@
 
 ## 文件结构
 
-内容按部分拆分到 `chapters/` 下，`main.tex` 只做装配（仿 TongjiThesis 形式）：
+内容按部分拆分到 `chapters/` 下，`main.tex` 只做装配：
 
 ```
 main.tex                      薄主文件，只负责 \input 装配各部分
